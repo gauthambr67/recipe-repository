@@ -22,10 +22,6 @@ const recipeSchema = new mongoose.Schema(
       type: Number,
       min: 1,
     },
-    prepInst: {
-      type: String,
-      required: true,
-    },
     cookInst: {
       type: String,
       required: true,
