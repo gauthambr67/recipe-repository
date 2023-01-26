@@ -1,1 +1,18 @@
-<%- include('../partials/header') %> <%- include('../partials/footer') %>
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/recipes" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title" />
+  <label>Course:</label>
+  <select name="course">
+    <option value="Appetizer">Appetizer</option>
+    <option value="Main Course">Main Course</option>
+    <option value="Dessert">Dessert</option>
+  </select>
+  <label>Serves:</label>
+  <input type="number" name="serves" />
+  <label>Instructions:</label>
+  <input type="text" name="instructions" />
+</form>
+
+<%- include('../partials/footer') %>
