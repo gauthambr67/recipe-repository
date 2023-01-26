@@ -30,7 +30,7 @@ const recipeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    ingredients: {
+    ingredientList: {
       type: Schema.Types.ObjectId,
       ref: "Ingredient",
       required: true,

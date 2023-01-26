@@ -12,6 +12,8 @@ router.get("/new", ensureLoggedIn, recipesCtrl.new);
 router.get("/:id", recipesCtrl.show);
 //POST /recipes (create new recipe based on input entered)
 router.post("/", ensureLoggedIn, recipesCtrl.create);
+//DELTE /recipes/:id (delete selected recipe by owner)
+router.delete("/:id", ensureLoggedIn, recipesCtrl.delete);
 
 function ensureLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
