@@ -27,20 +27,18 @@ const recipeSchema = new mongoose.Schema(
       required: true,
     },
     ingredientList: {
-      type: Schema.Types.ObjectId,
-      ref: "Ingredient",
+      type: String,
       required: true,
-      measure: {
-        type: String,
-        enum: ["ml", "grams", "tablespoon"],
-        required: true,
-      },
-      quantity: {
-        type: Number,
-        required: true,
-      },
+      // measure: {
+      //   type: String,
+      //   enum: ["ml", "grams", "tablespoon"],
+      //   required: true,
+      // },
+      // quantity: {
+      //   type: Number,
+      //   required: true,
+      // },
     },
-
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
@@ -51,6 +49,12 @@ const recipeSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+  },
+  {
+    reviewsList: {
+      type: Schema.Types.ObjectId,
+      ref: "Review",
+    },
   }
 );
 

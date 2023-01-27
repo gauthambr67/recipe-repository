@@ -1,6 +1,6 @@
 const Recipe = require("../models/recipe");
-const Ingredient = require("../models/ingredient");
-const ingredient = require("../models/ingredient");
+const Review = require("../models/review");
+// const ingredient = require("../models/ingredient");
 const recipe = require("../models/recipe");
 
 module.exports = {

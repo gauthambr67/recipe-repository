@@ -13,7 +13,7 @@ require("./config/passport");
 
 var indexRouter = require("./routes/index");
 let recipesRouter = require("./routes/recipes");
-let ingredientsRouter = require("./routes/ingredients");
+let ingredientsRouter = require("./routes/reviews");
 const { resourceLimits } = require("worker_threads");
 
 var app = express();
