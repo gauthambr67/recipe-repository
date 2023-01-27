@@ -31,31 +31,64 @@ function newRecipe(req, res) {
   res.render("recipes/new", { title: "Add new recipe" });
 }
 
-function createRecipe(req, res) {
-  const recipe = new Recipe(req.body);
-  recipe.save(function (err) {
-    if (err) return res.redirect("/recipes/new");
-    console.log(recipe);
-    res.redirect(`/recipes/${recipe._id}`);
-  });
+async function createRecipe(req, res) {
+  try {
+    const title = req.body.title;
+    const course = req.body.course;
+    const serves = req.body.serves;
+    const cookTime = req.body.cookTime;
+    const ingredients = req.body.ingredients;
+    const cookInst = req.body.cookInst;
+    const recipe = new Recipe({
+      title: title,
+      course: course,
+      serves: serves,
+      cookTime: cookTime,
+      ingredients: ingredients,
+      cookInst: cookInst,
+    });
+    await recipe.save();
+    res.redirect("/recipes");
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function deleteRecipe(req, res, next) {
-  Recipe.findOneAndDelete(
-    { _id: req.params.id, user: req.user._id },
-    function (err) {
-      res.redirect("/recipes");
-    }
-  );
+async function deleteRecipe(req, res, next) {
+  try {
+    await Recipe.findByIdAndDelete(req.params.id);
+    res.redirect("/recipes");
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function updateRecipe(req, res) {
-  Review.findOneAndUpdate(
-    { _id: req.params.id },
-    req.body,
-    { new: true },
-    function (err, review) {
-      console.log("Error updating recipe.");
-    }
-  );
+async function updateRecipe(req, res) {
+  try {
+    const title = req.body.title;
+    const course = req.body.course;
+    const serves = req.body.serves;
+    const cookTime = req.body.cookTime;
+    const ingredients = req.body.ingredients;
+    const cookInst = req.body.cookInst;
+    const recipe = await Recipe.findById(id);
+    recipe.title = title;
+    recipe.course = course;
+    recipe.serves = serves;
+    recipe.cookTime = cookTime;
+    recipe.ingredients = ingredients;
+    recipe.cookInst = cookInst;
+    await recipe.save();
+    res.redirect("/recipes");
+  } catch (err) {
+    console.log(err);
+  }
+  // Review.findOneAndUpdate(
+  //   { _id: req.params.id },
+  //   req.body,
+  //   { new: true },
+  //   function (err, review) {
+  //     console.log("Error updating recipe.");
+  //   }
+  // );
 }

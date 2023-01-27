@@ -15,7 +15,7 @@ router.post("/", ensureLoggedIn, recipesCtrl.createRecipe);
 //UPDATE /recipes/:id (update selected recipe)
 router.put("/:id", ensureLoggedIn, recipesCtrl.updateRecipe);
 //DELETE /recipes/:id (delete selected recipe by owner)
-router.delete("/:id", ensureLoggedIn, recipesCtrl.deleteRecipe);
+router.post("/:id", ensureLoggedIn, recipesCtrl.deleteRecipe);
 
 function ensureLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

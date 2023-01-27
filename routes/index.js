@@ -25,7 +25,7 @@ router.get(
 
 router.get("/logout", function (req, res) {
   req.logout(function () {
-    res.redirect("home.ejs");
+    res.redirect("/");
   });
 });
 

@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<form id="new-form" action="/recipes" method="POST">
+<form id="new-form" action="/recipes/" method="POST">
   <label>Title:</label>
   <input type="text" name="title" />
   <label>Course:</label>
@@ -13,9 +13,11 @@
   <input type="number" name="serves" />
   <label>CookTime(mins):</label>
   <input type="number" name="cookTime" />
+  <label>Ingredients</label>
+  <input type="text" name="ingredients" />
   <label>Instructions:</label>
-  <input type="text" name="instructions" />
+  <input type="text" name="cookInst" />
+  <input type="submit" value="Add Recipe" />
 </form>
-<button type="submit" form="new-form" value="submit">Add Recipe</button>
 
 <%- include('../partials/footer') %>
