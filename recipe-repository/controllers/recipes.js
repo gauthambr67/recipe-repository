@@ -47,16 +47,11 @@ function create(req, res) {
   });
 }
 
-async function deleteRecipe(req, res, next) {
-  try {
-    const movie = await Recipe.findOne({
-      "recipes._id": req.params.id,
-      "recipes.user": req.user._id,
-    });
-
-    //function needs to delete the recipe
-    if (!recipe) return res.redirect("/recipes");
-  } catch (err) {
-    return next(err);
-  }
+function deleteRecipe(req, res, next) {
+  Recipe.findOneAndDelete(
+    { _id: req.params.id, user: req.user._id },
+    function (err) {
+      res.redirect("/recipes");
+    }
+  );
 }

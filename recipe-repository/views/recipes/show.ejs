@@ -1,1 +1,22 @@
 <%- include('../partials/header') %>
+
+<section id="show-page">
+  <div>Title:</div>
+  <div><%= recipe.title %></div>
+  <div>Course:</div>
+  <div><%= recipe.course %></div>
+  <div>Serves:</div>
+  <div><%= recipe.serves %></div>
+  <div>CookTime(mins):</div>
+  <div><%= recipe.cookTime %></div>
+  <div>Ingredients:</div>
+  <ul>
+    <%-recipe.ingredientList.map(i => `
+    <li>${i.name}</li>
+    `).join('') %>
+  </ul>
+  <div>Instructions:</div>
+  <div><%= recipe.cookInst %></div>
+</section>
+
+<%- include('../partials/footer') %>
