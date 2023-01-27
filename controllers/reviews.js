@@ -1,48 +1,65 @@
 const Review = require("../models/review");
 const Recipe = require("../models/recipe");
+const review = require("../models/review");
 
 module.exports = {
   addReview,
   deleteReview,
-  getReviews,
+  getReview,
   updateReview,
+  getAllReviews,
 };
 
-function addReview(req, res) {
-  Recipe.findById(req.params.id, function (err, recipe) {
-    recipe.reviewsList.push(req.body.reviewId);
-    recipe.save(function (err) {
-      res.redirect(`/recipes/${recipe._id}`);
+async function addReview(req, res) {
+  try {
+    const content = req.body.content;
+
+    const review = new Review({
+      content: content,
     });
-  });
+    await review.save();
+    res.redirect("/reviews");
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function deleteReview(req, res) {
-  Recipe.findOneAndDelete({ _id: req.params.id }, function (err) {
-    res.redirect(`/recipes/${recipe._id}`);
-  });
+async function deleteReview(req, res) {
+  try {
+    const id = req.params.id;
+    await Review.findByIdAndRemove(id);
+    res.redirect("/reviews");
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function getReviews(req, res) {
-  // Recipe.findById({}, function (err, reviews) {
-  //   res.render(`/recipes/${recipe._id}`, {
-  //     reviews,
-  //   });
-  // });
-  Recipe.find({ _id: req.params.id }, function (err, reviews) {
-    res.render("/reviews", { title: "All Reviews", reviews });
-  });
+async function getReview(req, res) {
+  try {
+    const id = req.params.id;
+    const review = await Review.findById(id);
+    res.render("reviews/show", { review: review });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-function updateReview(req, res) {
-  Recipe.findOneAndUpdate(
-    { _id: req.params.reviewid },
-    req.body,
-    { new: true },
-    function (err, recipe) {
-      console.log("Error updating review.");
-    }
-  );
+async function getAllReviews(req, res) {
+  try {
+    const reviews = await Review.find();
+    res.render("reviews/index", { reviews: reviews });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-// /receipe/<id_recipie>/<id_review>
+async function updateReview(req, res) {
+  try {
+    const id = req.params.id;
+    const content = req.body.content;
+    await review.save();
+    res.redirect("/reviews");
+  } catch (err) {
+    console.log(err);
+  }
+}
