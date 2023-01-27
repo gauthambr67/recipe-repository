@@ -8,11 +8,12 @@
   </head>
   <body>
     <nav>
-      <a href="/home" <%- title === 'Home' ? 'class="active"' : '' %> >Home</a>
+      <a href="/" <%- title === 'Home' ? 'class="active"' : '' %> >Home</a>
       <a href="/recipes" <%- title === 'All Recipes' ? 'class="active"' : '' %> >All Recipes</a>
       <% if(user) { %>   
-        <a href="/ingredients/new" <%- title === 'Add Ingredient' ? 'class="active"' : '' %> >Add Ingredient</a>
+        
         <a href="/recipes/new" <%- title === 'Add Recipe' ? 'class="active"' : '' %> >Add Recipe</a>
+        <a href="/recipes/own" <%- title === 'My Recipe' ? 'class="active"' : '' %> >My Recipes</a>
         <a href="/logout">Log Out</a>
         <% } else { %>
             <a href="/auth/google" class="login">Log IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

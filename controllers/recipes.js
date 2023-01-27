@@ -19,22 +19,14 @@ function indexRecipe(req, res) {
 }
 
 function showRecipe(req, res) {
-  Recipe.findById(req.params.id)
-    .populate("ingredients")
-    .exec(function (err, recipe) {
-      Ingredient.find(
-        { _id: { $nin: recipe.ingredients } },
-        function (err, ingredients) {
-          console.log(ingredients);
-          res.render("recipes/show", {
-            title: "Recipe",
-            recipe,
-            ingredients,
-          });
-        }
-      );
-    });
+  Recipe.findById(req.params.id);
+
+  res.render("recipes/show", {
+    title: "Recipe",
+    recipe,
+  });
 }
+
 function newRecipe(req, res) {
   res.render("recipes/new", { title: "Add new recipe" });
 }

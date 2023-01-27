@@ -4,7 +4,7 @@ const passport = require("passport");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.redirect("home.ejs", { title: "Recipe Repository" });
+  res.render("home.ejs", { title: "Recipe Repository" });
 });
 
 router.get(
@@ -25,7 +25,7 @@ router.get(
 
 router.get("/logout", function (req, res) {
   req.logout(function () {
-    res.redirect("/home");
+    res.redirect("home.ejs");
   });
 });
 

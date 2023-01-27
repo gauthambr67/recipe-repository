@@ -13,7 +13,6 @@ require("./config/passport");
 
 var indexRouter = require("./routes/index");
 let recipesRouter = require("./routes/recipes");
-let ingredientsRouter = require("./routes/reviews");
 const { resourceLimits } = require("worker_threads");
 
 var app = express();
@@ -47,7 +46,6 @@ app.use(function (req, res, next) {
 
 app.use("/", indexRouter);
 app.use("/recipes", recipesRouter);
-app.use("/", ingredientsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
