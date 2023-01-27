@@ -2,13 +2,16 @@ const express = require("express");
 let router = express.Router();
 const reviewsCtrl = require("../controllers/reviews");
 
-//GET /ingredients/new
-router.get("/ingredients/new", reviewsCtrl.new);
+//GET /reviews/new
+router.get("/recipes/:id", reviewsCtrl.getReviews);
 
-//POST /ingredients
-router.get("/ingredients", reviewsCtrl.create);
+//POST /reviews
+router.post("/recipes/:id", reviewsCtrl.addReview);
 
-//POST /recipes/:id/reviews (linked to recipes)
-router.post("/recipes/:id/reviews", reviewsCtrl.addToIngredientList);
+//PUT /recipes/:id/reviews (linked to recipes)
+router.put("/recipes/:recipeid/:reviewid", reviewsCtrl.updateReview);
+
+//DELETE /recipes/:id/reviews
+router.delete("/recipes/:recipeid/:reviewid", reviewsCtrl.deleteReview);
 
 module.exports = router;

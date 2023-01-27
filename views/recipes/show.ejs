@@ -11,7 +11,7 @@
   <div><%= recipe.cookTime %></div>
   <div>Ingredients:</div>
   <ul>
-    <%-recipe.ingredientList.map(i => `
+    <%-recipe.ingredients.map(i => `
     <li>${i.name}</li>
     `).join('') %>
   </ul>

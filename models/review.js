@@ -15,6 +15,11 @@ const reviewSchema = new Schema(
     },
     userName: String,
     userAvatar: String,
+    recipe: {
+      type: Schema.Types.ObjectId,
+      ref: "Recipe",
+      required: true,
+    },
   },
   {
     timestamps: true,

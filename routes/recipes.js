@@ -5,17 +5,17 @@ let recipesCtrl = require("../controllers/recipes");
 //All routes starting with '/recipes'
 
 //GET /recipes (show all recipes)
-router.get("/", recipesCtrl.index);
+router.get("/", recipesCtrl.indexRecipe);
 //GET /recipes/new (show form for entering new recipe)
-router.get("/new", ensureLoggedIn, recipesCtrl.new);
+router.get("/new", ensureLoggedIn, recipesCtrl.newRecipe);
 //GET /recipes/:id (show the details of the chosen recipe)
-router.get("/:id", recipesCtrl.show);
+router.get("/:id", recipesCtrl.showRecipe);
 //POST /recipes (create new recipe based on input entered)
-router.post("/", ensureLoggedIn, recipesCtrl.create);
+router.post("/", ensureLoggedIn, recipesCtrl.createRecipe);
 //UPDATE /recipes/:id (update selected recipe)
-router.put("/:id", ensureLoggedIn, recipesCtrl.update);
+router.put("/:id", ensureLoggedIn, recipesCtrl.updateRecipe);
 //DELETE /recipes/:id (delete selected recipe by owner)
-router.delete("/:id", ensureLoggedIn, recipesCtrl.delete);
+router.delete("/:id", ensureLoggedIn, recipesCtrl.deleteRecipe);
 
 function ensureLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

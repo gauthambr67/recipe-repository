@@ -26,7 +26,7 @@ const recipeSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    ingredientList: {
+    ingredients: {
       type: String,
       required: true,
       // measure: {
@@ -46,15 +46,13 @@ const recipeSchema = new mongoose.Schema(
     },
     userName: String,
     userAvatar: String,
+    reviewsList: {
+      type: [Schema.Types.ObjectId],
+      ref: "Review",
+    },
   },
   {
     timestamps: true,
-  },
-  {
-    reviewsList: {
-      type: Schema.Types.ObjectId,
-      ref: "Review",
-    },
   }
 );
 
