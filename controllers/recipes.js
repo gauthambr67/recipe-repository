@@ -9,7 +9,6 @@ module.exports = {
   newRecipe,
   createRecipe,
   deleteRecipe,
-  updateRecipe,
 };
 
 function indexRecipe(req, res) {
@@ -61,34 +60,4 @@ async function deleteRecipe(req, res, next) {
   } catch (err) {
     console.log(err);
   }
-}
-
-async function updateRecipe(req, res) {
-  try {
-    const title = req.body.title;
-    const course = req.body.course;
-    const serves = req.body.serves;
-    const cookTime = req.body.cookTime;
-    const ingredients = req.body.ingredients;
-    const cookInst = req.body.cookInst;
-    const recipe = await Recipe.findById(id);
-    recipe.title = title;
-    recipe.course = course;
-    recipe.serves = serves;
-    recipe.cookTime = cookTime;
-    recipe.ingredients = ingredients;
-    recipe.cookInst = cookInst;
-    await recipe.save();
-    res.redirect("/recipes");
-  } catch (err) {
-    console.log(err);
-  }
-  // Review.findOneAndUpdate(
-  //   { _id: req.params.id },
-  //   req.body,
-  //   { new: true },
-  //   function (err, review) {
-  //     console.log("Error updating recipe.");
-  //   }
-  // );
 }

@@ -12,8 +12,6 @@ router.get("/new", ensureLoggedIn, recipesCtrl.newRecipe);
 router.get("/:id", recipesCtrl.showRecipe);
 //POST /recipes (create new recipe based on input entered)
 router.post("/", ensureLoggedIn, recipesCtrl.createRecipe);
-//UPDATE /recipes/:id (update selected recipe)
-router.put("/:id", ensureLoggedIn, recipesCtrl.updateRecipe);
 //DELETE /recipes/:id (delete selected recipe by owner)
 router.post("/:id", ensureLoggedIn, recipesCtrl.deleteRecipe);
 

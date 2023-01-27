@@ -24,11 +24,17 @@
       <td><%= r.cookInst %></td>
 
       <td>
-        <button value="update" id="updateRecipe">Update</button>
-      </td>
-      <td>
         <form id="delete-recipe" action="/recipes/<%= r._id %>" method="POST">
           <input type="submit" value="Delete Recipe" />
+        </form>
+      </td>
+      <td>
+        <form
+          id="view-reviews"
+          action="/recipes/<%= r._id %>/reviews"
+          method="GET"
+        >
+          <input type="submit" value="View Recipes" />
         </form>
       </td>
     </tr>

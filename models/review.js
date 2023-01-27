@@ -5,8 +5,6 @@ const reviewSchema = new Schema(
   {
     content: {
       type: String,
-      required: true,
-      unique: true,
     },
     user: {
       type: Schema.Types.ObjectId,

@@ -24,10 +24,13 @@ function deleteReview(req, res) {
 }
 
 function getReviews(req, res) {
-  Recipe.findById({}, function (err, reviews) {
-    res.render(`/recipes/${recipe._id}`, {
-      reviews,
-    });
+  // Recipe.findById({}, function (err, reviews) {
+  //   res.render(`/recipes/${recipe._id}`, {
+  //     reviews,
+  //   });
+  // });
+  Recipe.find({ _id: req.params.id }, function (err, reviews) {
+    res.render("/reviews", { title: "All Reviews", reviews });
   });
 }
 

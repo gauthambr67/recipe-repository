@@ -3,15 +3,15 @@ let router = express.Router();
 const reviewsCtrl = require("../controllers/reviews");
 
 //GET /reviews/new
-router.get("/recipes/:id", reviewsCtrl.getReviews);
+router.get("/recipes/:id/reviews", reviewsCtrl.getReviews);
 
 //POST /reviews
-router.post("/recipes/:id", reviewsCtrl.addReview);
+router.post("/recipes/:id/reviews", reviewsCtrl.addReview);
 
 //PUT /recipes/:id/reviews (linked to recipes)
-router.put("/recipes/:recipeid/:reviewid", reviewsCtrl.updateReview);
+router.put("/recipes/:recipeid/reviews/:reviewid", reviewsCtrl.updateReview);
 
 //DELETE /recipes/:id/reviews
-router.delete("/recipes/:recipeid/:reviewid", reviewsCtrl.deleteReview);
+router.delete("/recipes/:recipeid/reviews/:reviewid", reviewsCtrl.deleteReview);
 
 module.exports = router;
