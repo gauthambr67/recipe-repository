@@ -19,7 +19,11 @@ A simple app to manage recipes with review option. Allows user to add a new reci
 5. MongDB
 6. Google OAuth
 
-## Deployed project link
+## Deployed project link: 
+https://recipe-repository.herokuapp.com/
+
+https://git.heroku.com/recipe-repository.git
+
 
 ## Next Steps
 
