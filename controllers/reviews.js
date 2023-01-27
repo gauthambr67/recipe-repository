@@ -1,10 +1,10 @@
-const Review = require("../models/reviews");
+const Review = require("../models/review");
 const Recipe = require("../models/recipe");
 
 module.exports = {
   addReview,
   deleteReview,
-  allReviews,
+  getReviews,
   updateReview,
 };
 
@@ -23,8 +23,8 @@ function deleteReview(req, res) {
   });
 }
 
-function allReviews(req, res) {
-  Recipe.find({}, function (err, reviews) {
+function getReviews(req, res) {
+  Recipe.findById({}, function (err, reviews) {
     res.render(`/recipes/${recipe._id}`, {
       reviews,
     });
@@ -33,7 +33,7 @@ function allReviews(req, res) {
 
 function updateReview(req, res) {
   Recipe.findOneAndUpdate(
-    { _id: req.params.id },
+    { _id: req.params.reviewid },
     req.body,
     { new: true },
     function (err, recipe) {
