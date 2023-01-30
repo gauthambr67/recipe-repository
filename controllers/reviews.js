@@ -38,7 +38,7 @@ async function getReview(req, res) {
   try {
     const id = req.params.id;
     const review = await Review.findById(id);
-    res.render("reviews/show", { review: review });
+    res.render("reviews/reviewList", { review: review });
   } catch (err) {
     console.log(err);
   }
@@ -47,7 +47,7 @@ async function getReview(req, res) {
 async function getAllReviews(req, res) {
   try {
     const reviews = await Review.find();
-    res.render("reviews/index", { reviews: reviews });
+    res.render("reviews/reviewList", { reviews: reviews });
   } catch (err) {
     console.log(err);
   }

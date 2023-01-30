@@ -3,7 +3,7 @@ let router = express.Router();
 const reviewsCtrl = require("../controllers/reviews");
 
 //GET /reviews/new
-router.get("/recipes/:id/reviews", reviewsCtrl.getReviews);
+router.get("/recipes/:id/reviews", reviewsCtrl.getAllReviews);
 
 //POST /reviews
 router.post("/recipes/:id/reviews", reviewsCtrl.addReview);
