@@ -6,13 +6,13 @@ const reviewSchema = new Schema(
     content: {
       type: String,
     },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-    userName: String,
-    userAvatar: String,
+    // user: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "User",
+    //   required: true,
+    // },
+    // userName: String,
+    // userAvatar: String,
     recipe: {
       type: Schema.Types.ObjectId,
       ref: "Recipe",
