@@ -36,8 +36,18 @@
         >
           <input type="submit" value="View Reviews" />
         </form>
+        <td>
+          <form
+            id="add-reviews"
+            action="/reviews/recipes/<%= r._id %>/reviews"
+            method="GET"
+          >
+            <input type="submit" value="Add Review" />
+          </form>
+      </td>
       </td>
     </tr>
+
     <% }); %>
   </tbody>
 </table>

@@ -7,6 +7,11 @@
     <title>Add New Review</title>
   </head>
   <body>
-    <h1>Adding new Review here</h1>
+    <h1>Adding Review here</h1>
+    <form id="new-form" action="/recipes/:id/reviews" method="POST">
+      <label>Review:</label>
+      <input type="text" name="review" />
+      <input type="submit" value="Add Review" />
+    </form>
   </body>
 </html>
